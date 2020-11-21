@@ -154,7 +154,7 @@ $('#6').click(function() {
 			calculator.output = calculator.numberA
 		}
 		else {
-			if (calculator.numberB === null) {
+			if (calculator.numberB == null) {
 			calculator.numberB = '6';
 			calculator.output = calculator.numberB;
 			}
@@ -310,30 +310,41 @@ $('#del').click(function() {
 
 $('#enter').click(function() {
 	console.log('enter');
-
+	calculator.numberB=Number(calculator.numberB)
 	
 	if (calculator.func === 'plus') {
 		calculator.enter = calculator.numberA + calculator.numberB;
-		calculator.numberA = calculator.enter
-		calculator.output =calculator.enter;
+		calculator.numberA = calculator.enter;
+		calculator.numberA = String(calculator.numberA)
+		calculator.output = calculator.enter;
+		calculator.numberB = null;
 	}
 
 	if (calculator.func === 'del') {
 		calculator.enter = calculator.numberA / calculator.numberB;
-		calculator.output =calculator.enter;
+		calculator.numberA = calculator.enter;
+		calculator.numberA = String(calculator.numberA)
+		calculator.output = calculator.enter;
+		calculator.numberB = null;
 	}
 
 	if (calculator.func === 'umn') {
 		calculator.enter = calculator.numberA * calculator.numberB;
-		calculator.output =calculator.enter;
+		calculator.numberA = calculator.enter;
+		calculator.numberA = String(calculator.numberA)
+		calculator.output = calculator.enter;
+		calculator.numberB = null;
 	}
 
 	if (calculator.func === 'min') {
 		calculator.enter = calculator.numberA - calculator.numberB;
-		calculator.output =calculator.enter;
+		calculator.numberA = calculator.enter;
+		calculator.numberA = String(calculator.numberA)
+		calculator.output = calculator.enter;
+		calculator.numberB = null;
 	}
 
-	if ((calculator.func === 'del') + (calculator.numberB===0)) {
+	if (calculator.func == 'del' && calculator.numberB == 0) {
 		calculator.output = 'Ты клоун?'
 
 	}
