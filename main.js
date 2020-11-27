@@ -320,6 +320,13 @@ $('#enter').click(function() {
 		calculator.numberB = null;
 	}
 
+	if (calculator.func == 'del' && calculator.numberB == 0) {
+		calculator.output = 'Ты клоун?'
+		calculator.func = null
+
+	}
+
+
 	if (calculator.func === 'del') {
 		calculator.enter = calculator.numberA / calculator.numberB;
 		calculator.numberA = calculator.enter;
@@ -344,10 +351,6 @@ $('#enter').click(function() {
 		calculator.numberB = null;
 	}
 
-	if (calculator.func == 'del' && calculator.numberB == 0) {
-		calculator.output = 'Ты клоун?'
-
-	}
 
 	output();
 });
