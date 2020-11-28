@@ -282,29 +282,61 @@ $('#0').click(function() {
 
 $('#plus').click(function() {
 	console.log('plus');
-	calculator.numberA=Number(calculator.numberA)
-	calculator.func = 'plus'
+	if (calculator.enter) {
+		calculator.func = 'plus'
+		calculator.numberA=Number(calculator.numberA)
+		calculator.numberB = null
+	}
+
+	else {
+		calculator.func = 'plus'
+		calculator.numberA=Number(calculator.numberA)
+	}
 
 });
 
 $('#min').click(function() {
 	console.log('min');
-	calculator.numberA=Number(calculator.numberA)
-	calculator.func = 'min'
+	if (calculator.enter) {
+		calculator.func = 'min'
+		calculator.numberA=Number(calculator.numberA)
+		calculator.numberB = null
+	}
+
+	else {
+		calculator.func = 'min'
+		calculator.numberA=Number(calculator.numberA)
+	}
 
 });
 
 $('#umn').click(function() {
 	console.log('umn');
-	calculator.numberA=Number(calculator.numberA)
-	calculator.func = 'umn'
+	if (calculator.enter) {
+		calculator.func = 'umn'
+		calculator.numberA=Number(calculator.numberA)
+		calculator.numberB = null
+	}
+
+	else {
+		calculator.func = 'umn'
+		calculator.numberA=Number(calculator.numberA)
+	}
 
 });
 
 $('#del').click(function() {
 	console.log('del');
-	calculator.numberA=Number(calculator.numberA)
-	calculator.func = 'del'
+	if (calculator.enter) {
+		calculator.func = 'del'
+		calculator.numberA=Number(calculator.numberA)
+		calculator.numberB = null
+	}
+
+	else {
+		calculator.func = 'del'
+		calculator.numberA=Number(calculator.numberA)
+	}
 
 });
 
@@ -313,42 +345,33 @@ $('#enter').click(function() {
 	calculator.numberB=Number(calculator.numberB)
 	
 	if (calculator.func === 'plus') {
-		calculator.enter = calculator.numberA + calculator.numberB;
+		calculator.enter = (calculator.enter ? calculator.enter : calculator.numberA) + calculator.numberB;
 		calculator.numberA = calculator.enter;
 		calculator.numberA = String(calculator.numberA)
 		calculator.output = calculator.enter;
-		calculator.numberB = null;
 	}
 
-	if (calculator.func == 'del' && calculator.numberB == 0) {
-		calculator.output = 'Ты клоун?'
-		calculator.func = null
-
-	}
 
 
 	if (calculator.func === 'del') {
-		calculator.enter = calculator.numberA / calculator.numberB;
+		calculator.enter = (calculator.enter ? calculator.enter : calculator.numberA) / calculator.numberB;
 		calculator.numberA = calculator.enter;
 		calculator.numberA = String(calculator.numberA)
 		calculator.output = calculator.enter;
-		calculator.numberB = null;
 	}
 
 	if (calculator.func === 'umn') {
-		calculator.enter = calculator.numberA * calculator.numberB;
+		calculator.enter = (calculator.enter ? calculator.enter : calculator.numberA) * calculator.numberB;
 		calculator.numberA = calculator.enter;
 		calculator.numberA = String(calculator.numberA)
 		calculator.output = calculator.enter;
-		calculator.numberB = null;
 	}
 
 	if (calculator.func === 'min') {
-		calculator.enter = calculator.numberA - calculator.numberB;
+		calculator.enter = (calculator.enter ? calculator.enter : calculator.numberA) - calculator.numberB;
 		calculator.numberA = calculator.enter;
 		calculator.numberA = String(calculator.numberA)
 		calculator.output = calculator.enter;
-		calculator.numberB = null;
 	}
 
 
